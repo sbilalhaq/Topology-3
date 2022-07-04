@@ -5,13 +5,17 @@ resource "aws_route_table" "vpcrtb1" {
     cidr_block = var.vpc2_cidr
     gateway_id = aws_ec2_transit_gateway.tgw.id
   }
+  route {
+    cidr_block = var.all_cidr
+    gateway_id = aws_internet_gateway.igw_01.id
+  }
   depends_on = [
     aws_vpc.vpcs,
     aws_ec2_transit_gateway.tgw
   ]
-  
-    
-  
+
+
+
   tags = {
     Name = "rtb_vpc1"
   }
@@ -30,6 +34,7 @@ resource "aws_route_table" "vpcrtb2" {
   route {
     cidr_block = var.vpc1_cidr
     gateway_id = aws_ec2_transit_gateway.tgw.id
+
   }
   depends_on = [
     aws_vpc.vpcs,

@@ -16,7 +16,7 @@ resource "aws_subnet" "subnetsforvpc1" {
 resource "aws_subnet" "subnetsforvpc2" {
   vpc_id = aws_vpc.vpcs.2.id
   for_each = {
-    1 = var.sub1_vpc2 
+    1 = var.sub1_vpc2
 
   }
   cidr_block = each.value

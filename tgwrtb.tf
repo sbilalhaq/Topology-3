@@ -16,7 +16,7 @@ resource "aws_ec2_transit_gateway_route_table" "tgw_rtb2" {
   ]
   tags = {
     Name = "tgw_rtb2"
-  }  
+  }
 }
 
 resource "aws_ec2_transit_gateway_route_table_association" "tgwrtb-tgwatch1" {
